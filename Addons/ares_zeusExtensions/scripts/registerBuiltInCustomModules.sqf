@@ -30,10 +30,9 @@ _scripts = [
 	"ARC_godMode",
 	"ARC_MTAW_ReturnFire",
 	"ARC_MTAW_IgnoreCombat",
-	"ARC_resupplyMagazines",
 	"ARC_executeCodeUnit",
-	"ARC_enablePositionalACRE",
-	"ARC_disablePositionalACRE"
+	"ARC_positionalACRE",
+	"ARC_applyGear"
 ];
 
 {

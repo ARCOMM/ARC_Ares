@@ -28,7 +28,12 @@ _scripts = [
 	"ARC_disableAutoCombat",
 	"ARC_disableSuppression",
 	"ARC_godMode",
-	"ARC_moveToActiveWaypoint"
+	"ARC_MTAW_ReturnFire",
+	"ARC_MTAW_IgnoreCombat",
+	"ARC_resupplyMagazines",
+	"ARC_executeCodeUnit",
+	"ARC_enablePositionalACRE",
+	"ARC_disablePositionalACRE"
 ];
 
 {

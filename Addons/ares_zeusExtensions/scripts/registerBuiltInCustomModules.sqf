@@ -32,7 +32,8 @@ _scripts = [
 	"ARC_MTAW_IgnoreCombat",
 	"ARC_executeCodeUnit",
 	"ARC_positionalACRE",
-	"ARC_applyGear"
+	"ARC_applyGear",
+	"ARC_huntNearestPlayer"
 ];
 
 {

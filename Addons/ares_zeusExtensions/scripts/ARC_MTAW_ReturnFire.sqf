@@ -15,13 +15,14 @@
 			
 			{
 				[_x] joinSilent grpNull;
+				_grp = group _x;
 				_x setUnitPos "UP";
 				_x disableAI "SUPPRESSION";
 				_x disableAI "AUTOCOMBAT";
 				_x setBehaviour "AWARE";
 				_x setSpeedMode "FULL";
 				_x allowFleeing 0;
-				{deleteWaypoint _x} forEach (waypoints _group);
+				{deleteWaypoint _x} forEach (waypoints _grp);
 				
 				[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHeal;
 				_x doMove _dest;

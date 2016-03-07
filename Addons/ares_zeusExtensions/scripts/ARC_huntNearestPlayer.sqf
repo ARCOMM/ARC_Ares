@@ -105,6 +105,12 @@
 					private _group = group _unitUnderCursor;
 					private _aggroDistance = _this select 1;
 					private _updateDelay = _this select 2;
+					private _useUnits = [];
+					
+					{
+						[_x] joinSilent grpNull;
+						_useUnits pushBack _x;
+					} forEach units _group;
 					
 					while {true} do {
 						{
@@ -153,7 +159,7 @@
 									_unit doMove _targetPos;
 								};
 							};
-						} forEach units _group;
+						} forEach _useUnits;
 						
 						sleep _updateDelay;
 					};

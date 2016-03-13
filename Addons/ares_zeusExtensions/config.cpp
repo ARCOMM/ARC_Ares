@@ -129,7 +129,7 @@ class CfgVehicles
 	#include "cfgVehiclesModulesUtil.hpp"
 	#include "cfgVehiclesModulesUserDefined.hpp"
 	
-	#include "cfgVehiclesSortingOVerrides.hpp"
+	#include "cfgVehiclesSortingOverrides.hpp"
 };
 
 class CfgFunctions

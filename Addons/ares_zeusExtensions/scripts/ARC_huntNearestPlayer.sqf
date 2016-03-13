@@ -100,70 +100,72 @@
 				_aggroDistance = parseNumber (_options select 0 select 1 select (_dialogResult select 0));
 				_updateDelay = parseNumber (_options select 1 select 1 select (_dialogResult select 1));
 				
-				[_unitUnderCursor, _aggroDistance, _updateDelay] spawn {
-					private _unitUnderCursor = _this select 0;
-					private _group = group _unitUnderCursor;
-					private _aggroDistance = _this select 1;
-					private _updateDelay = _this select 2;
-					private _useUnits = [];
-					
-					{
-						[_x] joinSilent grpNull;
-						_useUnits pushBack _x;
-					} forEach units _group;
-					
-					while {true} do {
-						{
-							private _unit = _x;
-							
-							if (!isPlayer _unit) then {
-								_isHandled = _unit getVariable ["ARC_aiHandled", false];
-								
-								if (!_isHandled) then {
-									[_unit] joinSilent grpNull;
-									_unit setUnitPos "UP";
-									_unit disableAI "SUPPRESSION";
-									_unit disableAI "AUTOCOMBAT";
-									_unit setBehaviour "AWARE";
-									_unit setSpeedMode "FULL";
-									_unit allowFleeing 0;
-									{deleteWaypoint _x} forEach (waypoints _group);
-								};
-								
-								_unit setVariable ["ARC_aiHandled", true, true];
-								_nTargets = _unit nearEntities ["CAManBase", _aggroDistance];
-								_closestTarget = objNull;
-								_closestFloat = 5000;
-
-								{
-									_target = _x;
-									if (side _target != east && alive _target && !(_target getVariable ["ACE_isUnconscious", false])) then {
-										_distanceToTarget = _target distance _unit;
-										if (_distanceToTarget < _closestFloat) then {
-											_closestTarget = _target;
-											_closestFloat = _distanceToTarget;
-										};
-									};
-								} forEach _nTargets;
-								
-								_targetPos = getPos _closestTarget;
-								
-								if (([_closestTarget] call ace_common_fnc_isInBuilding) && (_unit distance _closestTarget) < 15) then {
-									{deleteWaypoint _x} forEach (waypoints _group);
-									_wp = _group addWaypoint [_targetPos, 0];
-									_wp setWaypointSpeed "FULL";
-									_wp setWaypointType "SAD";
-									_wp setWaypointBehaviour "AWARE";
-									_wp setWaypointCombatMode "GREEN";
-								} else {
-									_unit doMove _targetPos;
-								};
-							};
-						} forEach _useUnits;
+				[{
+					_this spawn {
+						private _unitUnderCursor = _this select 0;
+						private _group = group _unitUnderCursor;
+						private _aggroDistance = _this select 1;
+						private _updateDelay = _this select 2;
+						private _useUnits = [];
 						
-						sleep _updateDelay;
+						{
+							[_x] joinSilent grpNull;
+							_useUnits pushBack _x;
+						} forEach units _group;
+						
+						while {true} do {
+							{
+								private _unit = _x;
+								
+								if (!isPlayer _unit) then {
+									_isHandled = _unit getVariable ["ARC_aiHandled", false];
+									
+									if (!_isHandled) then {
+										[_unit] joinSilent grpNull;
+										_unit setUnitPos "UP";
+										_unit disableAI "SUPPRESSION";
+										_unit disableAI "AUTOCOMBAT";
+										_unit setBehaviour "AWARE";
+										_unit setSpeedMode "FULL";
+										_unit allowFleeing 0;
+										{deleteWaypoint _x} forEach (waypoints _group);
+									};
+									
+									_unit setVariable ["ARC_aiHandled", true, true];
+									_nTargets = _unit nearEntities ["CAManBase", _aggroDistance];
+									_closestTarget = objNull;
+									_closestFloat = 5000;
+
+									{
+										_target = _x;
+										if (side _target != east && alive _target && !(_target getVariable ["ACE_isUnconscious", false])) then {
+											_distanceToTarget = _target distance _unit;
+											if (_distanceToTarget < _closestFloat) then {
+												_closestTarget = _target;
+												_closestFloat = _distanceToTarget;
+											};
+										};
+									} forEach _nTargets;
+									
+									_targetPos = getPos _closestTarget;
+									
+									if (([_closestTarget] call ace_common_fnc_isInBuilding) && (_unit distance _closestTarget) < 15) then {
+										{deleteWaypoint _x} forEach (waypoints _group);
+										_wp = _group addWaypoint [_targetPos, 0];
+										_wp setWaypointSpeed "FULL";
+										_wp setWaypointType "SAD";
+										_wp setWaypointBehaviour "AWARE";
+										_wp setWaypointCombatMode "GREEN";
+									} else {
+										_unit doMove _targetPos;
+									};
+								};
+							} forEach _useUnits;
+							
+							sleep _updateDelay;
+						};
 					};
-				};
+				}, [_unitUnderCursor, _aggroDistance, _updateDelay], true] call Ares_fnc_BroadcastCode;
 			};			
 		};
 	}

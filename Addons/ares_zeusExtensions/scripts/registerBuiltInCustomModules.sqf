@@ -33,7 +33,10 @@ _scripts = [
 	"ARC_executeCodeUnit",
 	"ARC_positionalACRE",
 	"ARC_applyGear",
-	"ARC_huntNearestPlayer"
+	"ARC_huntNearestPlayer",
+	"ARC_explodeUnitSmall",
+	"ARC_explodeUnitMedium",
+	"ARC_explodeUnitLarge"
 ];
 
 {

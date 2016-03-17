@@ -3,7 +3,7 @@
 	"Hunt Nearest Player",
 	{
 		_unitUnderCursor = _this select 1;
-		
+		if !([] call Ares_fnc_checkHeadlessEntities) exitWith {[objNull, "No headless client initialized!"] call BIS_fnc_showCuratorFeedbackMessage};
 		if (isNull _unitUnderCursor) then {
 			_options = [
 				["Hunter Side:", ["BLUFOR", "OPFOR", "INDFOR", "CIVILIAN"], 1],

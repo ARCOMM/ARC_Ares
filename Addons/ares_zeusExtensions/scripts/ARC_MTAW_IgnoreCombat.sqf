@@ -3,7 +3,7 @@
 	"MTAW Ignore Combat",
 	{
 		_unitUnderCursor = _this select 1;
-
+		if !([] call Ares_fnc_checkHeadlessEntities) exitWith {[objNull, "No headless client initialized!"] call BIS_fnc_showCuratorFeedbackMessage};
 		if (!isNull _unitUnderCursor) then {
 			if (isPlayer _unitUnderCursor) exitWith {
 				[objNull, "Can't place module on a player unit"] call BIS_fnc_showCuratorFeedbackMessage;

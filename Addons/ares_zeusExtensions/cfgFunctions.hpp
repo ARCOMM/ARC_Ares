@@ -23,7 +23,7 @@ class Ares // This bit will be prefixed when actually calling the function (e.g.
 	class util
 	{
 		file = "\ares_zeusExtensions\functions";
-
+		class checkHeadlessEntities;
 		class AddUnitsToCurator;
 		class ArsenalSetup;
 		class BroadcastCode;

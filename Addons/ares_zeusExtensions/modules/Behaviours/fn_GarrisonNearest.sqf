@@ -13,7 +13,8 @@ if (_doesGroupContainAnyPlayer) then
 }
 else
 {
-	[(getPos _logic), (units _groupUnderCursor), 150, true, false] call Ares_fnc_ZenOccupyHouse;
+    _groupUnderCursor setSpeedMode "FULL";
+	[(getPos _logic), (units _groupUnderCursor), 150, true, true] call Ares_fnc_ZenOccupyHouse;
 	[objnull, "Garrisoned nearest building."] call bis_fnc_showCuratorFeedbackMessage;
 };
 

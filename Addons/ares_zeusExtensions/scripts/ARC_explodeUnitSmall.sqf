@@ -1,6 +1,6 @@
 [
 	"ARCOMM",
-	"Suicide Bomber (Small/82mm)",
+	"Explosion (Small/82mm)",
 	{
 		_unitUnderCursor = _this select 1;
 		_leaderpos = [getposATL _unitUnderCursor select 0, getposATL _unitUnderCursor select 1, 0.5];

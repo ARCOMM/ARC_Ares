@@ -20,8 +20,6 @@
 			} else {
 				_unit removeEventHandler ["Respawn", (_unit getVariable ["ARC_event_allowDamage", 0])];
 			};
-			
-			[(format ["God Mode %1", _boolStr]), "hint", true] call BIS_fnc_MP;
 		};
 
 		if (!isNull _unitUnderCursor) then {
@@ -72,7 +70,8 @@
 					if (side _x == _side && alive _x) then {
 						[_x, _status] call _applyGodMode;
 					};
-				} forEach allUnits;
+                    false
+				} count allUnits;
 			};
 		};
 	}

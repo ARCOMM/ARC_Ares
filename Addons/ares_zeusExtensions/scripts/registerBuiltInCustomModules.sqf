@@ -21,8 +21,6 @@ _scripts = [
 	"Util_RemoveAllActions",
 	"ARC_aceFullyHeal",
 	"ARC_addTrackingMarker",
-	"ARC_cbaSearchArea",
-	"ARC_cbaSearchNearby",
 	"ARC_cbaTaskDefend",
 	"ARC_destroyObjects",
 	"ARC_disableAutoCombat",

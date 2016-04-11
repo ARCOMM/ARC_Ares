@@ -7,7 +7,8 @@
 				if (!isPlayer _x) then {
 					_x disableAI "AUTOCOMBAT";
 				};
-			} forEach allUnits;
+                false
+			} count allUnits;
 		}] call Ares_fnc_BroadcastCode;
 	}
 ] call Ares_fnc_RegisterCustomModule;

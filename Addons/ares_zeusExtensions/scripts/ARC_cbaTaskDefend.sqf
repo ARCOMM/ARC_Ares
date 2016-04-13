@@ -22,8 +22,15 @@
 				_radius = parseNumber(_options select 0 select 1 select (_dialogResult select 0));
 				_buildingThreshold = parseNumber(_options select 1 select 1 select (_dialogResult select 1));
 				_canPatrol = if ( parseNumber(_options select 2 select 1 select (_dialogResult select 2)) == 0) then {true} else {false};
-				
-				[_group, _group, _radius, _buildingThreshold, _canPatrol] call CBA_fnc_taskDefend;
+                
+                [
+                    [_group, _radius, _buildingThreshold, _canPatrol],
+                    {
+                        params ["_group","_radius","_buildingThreshold","_canPatrol"];
+                        [_group, _group, _radius, _buildingThreshold, _canPatrol] call CBA_fnc_taskDefend;
+                    }
+                ] remoteExec ["BIS_fnc_call", (groupOwner _group), false];
+                
 				[objNull, "Group assigned to defend area"] call BIS_fnc_showCuratorFeedbackMessage;
 			};
 		};

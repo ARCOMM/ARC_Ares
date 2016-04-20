@@ -12,7 +12,7 @@ _dialogResult = [
 			"All units within 1km",
 			"All units within 2km",
 			"All units within 5km"
-		],1
+		],0
 	]] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult > 0) then

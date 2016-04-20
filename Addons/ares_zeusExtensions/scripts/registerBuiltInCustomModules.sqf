@@ -28,13 +28,13 @@ _scripts = [
 	"ARC_disableAutoCombat",
 	"ARC_disableSuppression",
 	"ARC_godMode",
-	"ARC_MTAW_ReturnFire",
-	"ARC_MTAW_IgnoreCombat",
+	/*"ARC_MTAW_ReturnFire",
+	"ARC_MTAW_IgnoreCombat",*/
 	"ARC_executeCodeUnit",
 	"ARC_positionalACRE",
 	"ARC_applyGear",
     "ARC_applyAIGear",
-	"ARC_huntNearestPlayer",
+	//"ARC_huntNearestPlayer",
 	"ARC_explodeUnitSmall",
 	"ARC_explodeUnitMedium",
 	"ARC_explodeUnitLarge"

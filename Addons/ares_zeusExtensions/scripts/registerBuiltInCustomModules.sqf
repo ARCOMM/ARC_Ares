@@ -8,7 +8,7 @@ _scripts = [
 	"Behaviour_ArtilleryFireMission",
 	"Equipment_RemoveWeaponOptics",
 	"SaveLoad_CreateMissionSQF",
-	"Util_ChangePlayerSides",
+	//"Util_ChangePlayerSides",
 	"Util_DisableDebugLog",
 	"Util_DisableSimulation",
 	"Util_EnableDebugLog",
@@ -16,6 +16,7 @@ _scripts = [
 	"Util_ExecuteCodeAll",
 	"Util_ExecuteCodeLocal",
 	"Util_ExecuteCodeServer",
+	"Util_ExecuteCodeHC",
 	"Util_MakeZeusInvisible",
 	"Util_MakeZeusVisible",
 	"Util_RemoveAllActions",
@@ -26,9 +27,9 @@ _scripts = [
 	"ARC_cbaSearchNearby",
 	"ARC_destroyObjects",
 	"ARC_deleteCorpses",
-	"ARC_godMode",
-	/*"ARC_MTAW_ReturnFire",
-	"ARC_MTAW_IgnoreCombat",*/
+	//"ARC_godMode",
+	//"ARC_MTAW_ReturnFire",
+	//"ARC_MTAW_IgnoreCombat",
 	"ARC_executeCodeUnit",
 	"ARC_positionalACRE",
 	"ARC_applyGear",
@@ -36,7 +37,12 @@ _scripts = [
 	//"ARC_huntNearestPlayer",
 	"ARC_explodeUnitSmall",
 	"ARC_explodeUnitMedium",
-	"ARC_explodeUnitLarge"
+	"ARC_explodeUnitLarge",
+    "ARC_deleteEmptyGroups",
+    "ARC_groundFlareWhite",
+    "ARC_groundFlareGreen",
+    "ARC_groundFlareRed",
+    "ARC_groundFlareYellow"
 ];
 
 {

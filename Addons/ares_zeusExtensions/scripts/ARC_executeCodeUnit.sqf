@@ -1,10 +1,10 @@
 [
-	"ARCOMM",
+	"Util",
 	"Execute Code (Unit)",
 	{
 		_unitUnderCursor = _this select 1;
 		
-		if (!isNull _unitUnderCursor && isPlayer _unitUnderCursor) then {
+		if (!isNull _unitUnderCursor) then {
 			missionNamespace setVariable ['Ares_CopyPaste_Dialog_Text', ""];
 			missionNamespace setVariable ["Ares_CopyPaste_Dialog_Result", ""];
 			_dialog = createDialog "Ares_CopyPaste_Dialog";
@@ -19,7 +19,7 @@
 					_compiledText = compile _pastedText;
 					ARC_oneshotCodeBlock = _compiledText;
 					publicVariable "ARC_oneshotCodeBlock";
-					[[], "ARC_oneshotCodeBlock", _unitUnderCursor] call BIS_fnc_MP;
+                    [] remoteExecCall ["ARC_oneshotCodeBlock", _unitUnderCursor];
 				} catch {
 					diag_log _exception;
 					["Failed to parse code. See RPT for error."] call Ares_fnc_ShowZeusMessage;

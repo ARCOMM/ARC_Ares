@@ -119,19 +119,20 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
                             };
 
                             if (!(_isRoof) || {_edge}) then {
-                                (_units select _unitIndex) setPosASL [(_housePos select 0), (_housePos select 1), (_housePos select 2) - EYE_HEIGHT];
-                                (_units select _unitIndex) setDir (_i );
+                                private _indexedUnit = _units select _unitIndex;
+                                _indexedUnit setPosASL [(_housePos select 0), (_housePos select 1), (_housePos select 2) - EYE_HEIGHT];
+                                
+                                [_indexedUnit, _i] remoteExecCall ["setDir", _indexedUnit];
+                                [_indexedUnit, _i] remoteExecCall ["setFormDir", _indexedUnit];
 
                                 if (_isRoof) then {
-                                    (_units select _unitIndex) setUnitPos "MIDDLE";
+                                    [_indexedUnit, "MIDDLE"] remoteExecCall ["setUnitPos", _indexedUnit];
                                 } else {
-                                    (_units select _unitIndex) setUnitPos "UP";
+                                    [_indexedUnit, "UP"] remoteExecCall ["setUnitPos", _indexedUnit];
                                 };
-
-                                (_units select _unitIndex) doWatch ([_housePos, CHECK_DISTANCE, (90 - _i), (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition);
-                                doStop (_units select _unitIndex);
-								(_units select _unitIndex) disableAI "MOVE"; // Unfortunately this is needed, otherwise units will just return to formation. Not sure why forceSpeed & doStop aren't working, but oh well.
-								(_units select _unitIndex) forceSpeed 0;
+                                
+                                [_indexedUnit, ([_housePos, CHECK_DISTANCE, (90 - _i), (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition)] remoteExecCall ["doWatch", _indexedUnit];
+                                [_indexedUnit, "PATH"] remoteExecCall ["disableAI", _indexedUnit];
 
                                 I(_unitIndex)
                                 if (_fillEvenly) then {
@@ -155,26 +156,3 @@ for [{_i = _unitIndex}, {_i < count _units}, {I(_i)}] do {
 };
 
 (_unUsedUnits)
-
-// Changelog
-
-// 7/31/14
-    // 1. Added: Parameter to cycle through each building in the radius, giving units to each one
-    // 2. Improved: Units on roof are only placed at the edge, and face the edge
-    // 3. Improved: Optimized roof check
-    // 4. Improved: General script cleanup
-
-// 7/28/14
-    // 1. Fixed: Units facing the wrong window
-    // 2. Added: Parameter for distance to select multiple buildings
-    // 3. Added: Parameter for units being on a roof
-    // 4. Improved: Now checks that unit has a good FOV from the windows
-    // 5. Improved: Units can no longer face a windows greater than 5 meters away
-    // 6. Improved: Units on a roof now crouch
-    // 7. Tweaked: Height of human eye to the exact value in ArmA
-
-// 7/24/14
-    // Initial Release
-
-// Known Issues
-    // None

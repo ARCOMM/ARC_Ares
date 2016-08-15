@@ -1,6 +1,6 @@
 [
 	"ARCOMM",
-	"Delete AI Corpses (400m)",
+	"Delete Corpses (400m)",
 	{
         private _isNearPlayers = {
             params [["_unit", objNull]];

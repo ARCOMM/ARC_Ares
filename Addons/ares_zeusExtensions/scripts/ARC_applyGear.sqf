@@ -14,7 +14,8 @@
 			
 			if (_dialogResult == 1) then {
 				_pastedText = missionNamespace getVariable ["Ares_CopyPaste_Dialog_Text", "r"];
-				[[_pastedText, _unitUnderCursor], "f_fnc_assignGear", _unitUnderCursor, false, true] call BIS_fnc_MP;
+				//[[_pastedText, _unitUnderCursor], "f_fnc_assignGear", _unitUnderCursor, false, true] call BIS_fnc_MP;
+				[_pastedText, _unitUnderCursor] remoteExecCall ["f_fnc_assignGear", _unitUnderCursor, false]; // remoteExecCall omits last parameter true from BIS fnc MP (isCall) because it's already called by default.
 			};
 		};
 	}

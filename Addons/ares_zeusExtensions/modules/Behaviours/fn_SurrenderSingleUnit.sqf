@@ -14,13 +14,13 @@ if (isNil "Ares_AddSurrenderActionsFunction") then
 	Ares_AddSurrenderActionsFunction =
 	{
 		_unit = _this select 0; //For readability.
-
+[_this select 0] remoteExecCall ["Ares_AddSurrenderActionsFunction",0];
 		if (alive _unit) then
 		{
 			if (_unit getVariable["AresHasCaputreActionsAdded", -1] == -1) then
 			{
-				_unit addAction ["Secure", { (_this select 0) setVariable["AresCaptureState", CAPTURE_STATE_SECURED, true]; [[_this select 0], "Ares_AddSurrenderActionsFunction", true] spawn BIS_fnc_MP; }, [], 0, false, true, "", "(alive _target) && (player distance _target < 3) && (_target getVariable ['AresCaptureState', -1] == 0)"];
-				_unit addAction ["Release", { (_this select 0) setVariable["AresCaptureState", CAPTURE_STATE_UNKNOWN, true]; [[_this select 0], "Ares_AddSurrenderActionsFunction", true] spawn BIS_fnc_MP; }, [], 0, false, true, "", "(alive _target) && (player distance _target < 3) && (_target getVariable ['AresCaptureState', -1] == 0)"];
+				_unit addAction ["Secure", { (_this select 0) setVariable["AresCaptureState", CAPTURE_STATE_SECURED, true]; (_this select 0) remoteExecCall ["Ares_AddSurrenderActionsFunction",0]; }, [], 0, false, true, "", "(alive _target) && (player distance _target < 3) && (_target getVariable ['AresCaptureState', -1] == 0)"];
+				_unit addAction ["Release", { (_this select 0) setVariable["AresCaptureState", CAPTURE_STATE_UNKNOWN, true]; (_this select 0) remoteExecCall ["Ares_AddSurrenderActionsFunction",0]; }, [], 0, false, true, "", "(alive _target) && (player distance _target < 3) && (_target getVariable ['AresCaptureState', -1] == 0)"];
 				_unit setVariable ["AresHasCaputreActionsAdded", 1];
 			};
 			
@@ -95,7 +95,8 @@ if (alive _unitToSurrender) then
 
 				// Broadcast to all players that this unit is surrendered. Will update their anim states in the mission.
 				// We use a persistant call because we want it to be called later for JIP.
-				[[_unitToSurrender], "Ares_AddSurrenderActionsFunction", true, true] spawn BIS_fnc_MP;
+				//[[_unitToSurrender], "Ares_AddSurrenderActionsFunction", true, true] spawn BIS_fnc_MP;
+				_unitToSurrender remoteExecCall ["Ares_AddSurrenderActionsFunction", 0, true];
 
 				[objnull, "Unit surrendered."] call bis_fnc_showCuratorFeedbackMessage;
 			};
@@ -122,7 +123,8 @@ if (alive _unitToSurrender) then
 
 					// Broadcast to all players that this unit is surrendered. Will update their anim states in the mission.
 					// We use a persistant call because we want it to be called later for JIP.
-					[[_unitToSurrender], "Ares_AddSurrenderActionsFunction", true, true] spawn BIS_fnc_MP;
+					//[[_unitToSurrender], "Ares_AddSurrenderActionsFunction", true, true] spawn BIS_fnc_MP;
+					_unitToSurrender remoteExecCall ["Ares_AddSurrenderActionsFunction", 0, true];
 
 					[objnull, "Unit secured."] call bis_fnc_showCuratorFeedbackMessage;
 				};

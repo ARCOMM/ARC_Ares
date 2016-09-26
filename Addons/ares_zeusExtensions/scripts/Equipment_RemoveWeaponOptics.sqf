@@ -66,7 +66,8 @@
 		
 		if (count _units > 0) then
 		{
-			[[_units], "Ares_RemoveOpitcsCodeBlock", true, true] call BIS_fnc_MP;
+			//[[_units], "Ares_RemoveOpitcsCodeBlock", true, true] call BIS_fnc_MP;
+			_units remoteExecCall ["Ares_RemoveOpitcsCodeBlock", 0, true];
 			["Removed optics on %1 objects.", (count _units)] call Ares_fnc_ShowZeusMessage;
 		};
 	}

@@ -30,7 +30,8 @@ if (count _dialogResult > 0) then
 		[[_sourceObject]] call Ares_fnc_AddUnitsToCurator;
 	};
 
-	[[(_dialogResult select 0), _sourceObject], "Ares_Spawn_Smoke_Function", true, true] call BIS_fnc_MP;
+	//[[(_dialogResult select 0), _sourceObject], "Ares_Spawn_Smoke_Function", true, true] call BIS_fnc_MP;
+	[(_dialogResult select 0), _sourceObject] remoteExecCall ["Ares_Spawn_Smoke_Function", 0, true];
 };
 
 #include "\ares_zeusExtensions\module_footer.hpp"

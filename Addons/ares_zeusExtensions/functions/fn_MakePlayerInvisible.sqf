@@ -34,4 +34,4 @@ _updateVisibilityBlock = {
 		_unit hideObjectGlobal _shouldBeInvisible;
 	};
 };
-[_updateVisibilityBlock, [_unit, _shouldBeInvisible], true] call Ares_fnc_BroadcastCode;
+[_updateVisibilityBlock, [_unit, _shouldBeInvisible], 0] call Ares_fnc_BroadcastCode;

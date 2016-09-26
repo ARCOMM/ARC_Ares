@@ -17,9 +17,7 @@
 				
 				try {
 					_compiledText = compile _pastedText;
-					ARC_oneshotCodeBlock = _compiledText;
-					publicVariable "ARC_oneshotCodeBlock";
-                    [] remoteExecCall ["ARC_oneshotCodeBlock", _unitUnderCursor];
+					[_compiledText, _unitUnderCursor] call Ares_fnc_broadCastCode;
 				} catch {
 					diag_log _exception;
 					["Failed to parse code. See RPT for error."] call Ares_fnc_ShowZeusMessage;

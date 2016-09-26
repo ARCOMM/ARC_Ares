@@ -8,16 +8,17 @@
 	Params:
 		0 - Code - The block of code to execute remotely.
 		1 - Anything - (Optional) The parameters to pass to the code. Default: [].
-		2 - Bool - (Optional) False if this should run only on the server, true if it should be run everywhere (including this machine). Default: true.
+		2 - Number - (Optional) 2 if this should run only on the server, 0 if it should be run everywhere (including this machine). Default: 0.
 */
 
-_codeBlock = [_this, 0] call BIS_fnc_Param;
-_params = [_this, 1, []] call BIS_fnc_Param;
-_runOnAllMachines = [_this, 2, true, [true]] call BIS_fnc_Param;
+_codeBlock = param [0];
+_params = param [1, []];
+_runOnAllMachines = param [2, 0, [0]]; // Will run on all machines
 
 Ares_oneshotCodeBlock = _codeBlock;
-publicVariable "Ares_oneshotCodeBlock";
+publicVariable "Ares_oneshotCodeBlock"; // May be redundant but not exactly a waste of space either.
 
-[_params, "Ares_oneshotCodeBlock", _runOnAllMachines] call BIS_fnc_MP;
+//[_params, "Ares_oneshotCodeBlock", _runOnAllMachines] call BIS_fnc_MP;
+_params remoteExecCall ["Ares_oneShotCodeBlock",_runOnAllMachines];
 
-true;
+true

@@ -10,7 +10,7 @@
 		else
 		{
 			_codeBlock = {_this enableSimulationGlobal true;};
-			[_codeBlock, _unitUnderCursor, false] call Ares_fnc_BroadcastCode;
+			[_codeBlock, _unitUnderCursor, 2] call Ares_fnc_BroadcastCode;
 			["Simulation enabled."] call Ares_fnc_ShowZeusMessage;
 		};
 	}

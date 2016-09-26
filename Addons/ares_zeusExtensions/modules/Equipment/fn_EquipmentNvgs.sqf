@@ -100,7 +100,8 @@ else
 
 if (count _units > 0) then
 {
-	[[_units, _enableNvgs], "Ares_ChangeNvgCodeBlock", true, true] call BIS_fnc_MP;
+	//[[_units, _enableNvgs], "Ares_ChangeNvgCodeBlock", true, true] call BIS_fnc_MP;
+	[_units, _enableNvgs] remoteExecCall ["Ares_ChangeNvgCodeBlock", 0, true];
 	[objnull, format ["Changed NVG settings on %1 objects.", (count _units)]] call bis_fnc_showCuratorFeedbackMessage;
 };
 

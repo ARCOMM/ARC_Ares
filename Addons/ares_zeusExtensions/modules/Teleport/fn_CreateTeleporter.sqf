@@ -90,7 +90,8 @@ _teleportMarker setVariable ["teleportMarkerName", _teleportMarkerName, true];
 [[_teleportMarker]] call Ares_fnc_AddUnitsToCurator;
 
 // Call this to add the teleport marker actions on all machines. Persistent for JIP people as well.
-[[_teleportMarker], "Ares_addNewTeleportMarkerActions", true, _isFirstCallToCreateTeleporter] call BIS_fnc_MP;
+//[[_teleportMarker], "Ares_addNewTeleportMarkerActions", true, _isFirstCallToCreateTeleporter] call BIS_fnc_MP;
+_teleportMarker remoteExecCall ["Ares_addNewTeleportMarkerActions", 0, _isFirstCallToCreateTeleporter];
 
 [objNull, format["Created teleporter '%1'", _teleportMarkerName]] call bis_fnc_showCuratorFeedbackMessage;
 

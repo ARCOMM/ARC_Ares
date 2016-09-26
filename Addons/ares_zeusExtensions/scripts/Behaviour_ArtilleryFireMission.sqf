@@ -119,7 +119,8 @@
 
 		// Fire the guns
 		{
-			[[_x, _targetPos, _ammo, _rounds], "Ares_FireArtilleryFunction", _x] call BIS_fnc_MP;
+			//[[_x, _targetPos, _ammo, _rounds], "Ares_FireArtilleryFunction", _x] call BIS_fnc_MP;
+			[_x, _targetPos, _ammo, _rounds] remoteExecCall ["Ares_FireArtilleryFunction", _x];
 		} forEach _gunsToFire;
 		["Firing %1 rounds of '%2' at target. ETA %3", _rounds, _ammo, _roundEta] call Ares_fnc_ShowZeusMessage;
 	}

@@ -57,7 +57,8 @@
 					]
 				];
 				
-				[_params, "ARC_fnc_addTrackingMarker", false] call BIS_fnc_MP;
+				//[_params, "ARC_fnc_addTrackingMarker", false] call BIS_fnc_MP;
+				_params remoteExecCall ["ARC_fnc_addTrackingMarker", 2];
 				[objNull, "Added tracking marker to unit"] call BIS_fnc_showCuratorFeedbackMessage;
 			};
 		};

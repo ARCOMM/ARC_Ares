@@ -25,5 +25,6 @@ if (isNil "Ares_addUnitsToCuratorFunction") then
 	publicVariable "Ares_addUnitsToCuratorFunction";
 };
 
-[[_unitsToModify, _addToCurator], "Ares_addUnitsToCuratorFunction", false] call BIS_fnc_MP;
+//[[_unitsToModify, _addToCurator], "Ares_addUnitsToCuratorFunction", false] call BIS_fnc_MP;
+[_unitsToModify, _addToCurator] remoteExecCall ["Ares_addUnitsToCuratorFunction", 2]; // ARes fnc broadcastCode does not work in this instance, as functionception doesn't work.
 true

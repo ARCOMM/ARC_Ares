@@ -11,4 +11,6 @@ _params = _this select 0;
 _functionName = _this select 1;
 _isPersistent = param [2, true, [true]];
 
-[_params, _functionName, true, _isPersistent] spawn BIS_fnc_MP;
+//[_params, _functionName, true, _isPersistent] spawn BIS_fnc_MP;
+
+_params remoteExecCall [_functionName, 0, _isPersistent];

@@ -67,7 +67,8 @@
 					// Fire at the target where the unit is local (See #129)
 					enableEngineArtillery true;
 					_roundEta = _artillery getArtilleryETA [position _selectedTarget, _selectedAmmoType];
-					[[_artillery, (position _selectedTarget), _selectedAmmoType, _roundsToFire], "Ares_FireArtilleryFunction", _artillery] call BIS_fnc_MP;
+					//[[_artillery, (position _selectedTarget), _selectedAmmoType, _roundsToFire], "Ares_FireArtilleryFunction", _artillery] call BIS_fnc_MP;
+					[_artillery, (position _selectedTarget), _selectedAmmoType, _roundsToFire] remoteExecCall ["Ares_FireArtilleryFunction", _artillery];
 					
 					[objNull, format ["Firing %1 rounds of '%2' at target. ETA %3", _roundsToFire, _selectedAmmoType, _roundEta]] call bis_fnc_showCuratorFeedbackMessage;
 				}

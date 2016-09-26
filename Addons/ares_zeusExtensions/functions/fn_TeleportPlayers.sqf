@@ -7,7 +7,8 @@ if (_showTeleportMessage) then
 {
 	Ares_playersToShowMessageTo = _playersToTeleport;
 	publicVariable "Ares_playersToShowMessageTo";
-	[{ if (player in Ares_playersToShowMessageTo) then { titleText ["You are being teleported...", "BLACK", 1]; sleep 1; titleFadeOut 2; };}, "BIS_fnc_spawn"] call BIS_fnc_MP;
+	//[{ if (player in Ares_playersToShowMessageTo) then { titleText ["You are being teleported...", "BLACK", 1]; sleep 1; titleFadeOut 2; };}, "BIS_fnc_spawn"] call BIS_fnc_MP;
+	[{ if (player in Ares_playersToShowMessageTo) then { titleText ["You are being teleported...", "BLACK", 1]; sleep 1; titleFadeOut 2; };}] remoteExec ["BIS_fnc_spawn", 0]; // not sure if this works.
 };
 
 // TODO improve this.

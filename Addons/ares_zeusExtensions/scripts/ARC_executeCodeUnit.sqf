@@ -17,7 +17,7 @@
 				
 				try {
 					_compiledText = compile _pastedText;
-					[_compiledText, _unitUnderCursor] call Ares_fnc_broadCastCode;
+					[_unitUnderCursor,_compiledText] remoteExec ["BIS_fnc_spawn", _unitUnderCursor];
 				} catch {
 					diag_log _exception;
 					["Failed to parse code. See RPT for error."] call Ares_fnc_ShowZeusMessage;

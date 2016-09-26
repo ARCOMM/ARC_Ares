@@ -97,7 +97,8 @@ else
 
 if (count _units > 0) then
 {
-	[[_units, _lightsSetting], "Ares_ChangeLightsCodeBlock", true, true] call BIS_fnc_MP;
+	//[[_units, _lightsSetting], "Ares_ChangeLightsCodeBlock", true, true] call BIS_fnc_MP;
+	[_units, _lightsSetting] remoteExecCall ["Ares_ChangeLightsCodeBlock", 0, true];
 	[objnull, format ["Changed light settings on %1 objects.", (count _units)]] call bis_fnc_showCuratorFeedbackMessage;
 };
 

@@ -63,7 +63,8 @@ if (count _dialogResult > 0) then
 	if (_isFirstTimeSettingWeather) then
 	{
 		diag_log "Broadcasting weather change event handler...";
-		[[], "Ares_Setup_Weather_Change_Event_Handler", true, true] call BIS_fnc_MP;
+		//[[], "Ares_Setup_Weather_Change_Event_Handler", true, true] call BIS_fnc_MP;
+		remoteExecCall ["Ares_Setup_Weather_Change_Event_Handler", 0, true];
 	};
 	
 	diag_log "Changing weather...";

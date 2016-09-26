@@ -1,6 +1,6 @@
 _playersToTeleport = _this select 0;
 _teleportLocation = _this select 1;
-_showTeleportMessage = [_this, 2, true, [true]] call BIS_fnc_param;
+_showTeleportMessage = param [2, true, [true]];
 
 // Show some text to the players that are going to be teleported.
 if (_showTeleportMessage) then

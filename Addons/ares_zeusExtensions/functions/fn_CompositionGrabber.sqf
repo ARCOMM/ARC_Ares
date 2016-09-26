@@ -11,8 +11,8 @@
 */
 
 private ["_anchorObject", "_anchorDim", "_grabOrientation"];
-_anchorObject = [_this, 0] call BIS_fnc_Param;
-_anchorDim = [_this, 1, 50, [-1]] call BIS_fnc_Param;
+_anchorObject = param [0];
+_anchorDim = param [1, 50, [0]];
 
 private ["_objs"];
 _anchorPos = position _anchorObject;

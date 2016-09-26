@@ -9,7 +9,7 @@
 		String - The name corresponding to the number provided.
 */
 
-_index = [_this, 0, 0] call BIS_fnc_param;
+_index = param [0,0];
 
 _names = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-Ray", "Yankee", "Zulu"];
 

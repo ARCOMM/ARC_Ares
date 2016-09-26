@@ -27,13 +27,13 @@
 #define SIDE_FILTER_GREENFOR 'Greenfor'
 #define SIDE_FILTER_NONE 'None'
 
-_allowGPS =                      [_this, 0, False] call BIS_fnc_Param;
-_allowThermals =                 [_this, 1, False] call BIS_fnc_Param;
-_allowNvg =                      [_this, 2, False] call BIS_fnc_Param;
-_allowedStaticWeapons =          [_this, 3, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowedUav =                    [_this, 4, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowedAutomatedStaticWeapons = [_this, 5, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowRespawnTents =             [_this, 6, False] call BIS_fnc_Param;
+_allowGPS =                      param [0, false];
+_allowThermals =                 param [1, false];
+_allowNvg =                      param [2, false];
+_allowedStaticWeapons =          param [3, SIDE_FILTER_NONE];
+_allowedUav =                    param [4, SIDE_FILTER_NONE];
+_allowedAutomatedStaticWeapons = param [5, SIDE_FILTER_NONE];
+_allowRespawnTents =             param [6, false];
 
 // diag_log format["Generating blacklist: %1, %2, %3, %4, %5, %6", _allowGPS, _allowThermals, _allowNvg, _allowedStaticWeapons, _allowedUav, _allowedAutomatedStaticWeapons];
 

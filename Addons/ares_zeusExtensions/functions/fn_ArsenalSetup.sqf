@@ -10,10 +10,10 @@
 		4 - Bool - (Optional) True to automatically add glasses, false to leave them out. Default false.
 */
 
-_ammoBox = [_this, 0] call BIS_fnc_Param;
-_itemData = [_this, 1, [], [[]]] call BIS_fnc_Param;
-_removeItems = [_this, 2, false, [false]] call BIS_fnc_Param;
-_addGlasses = [_this, 3, false, [false]] call BIS_fnc_Param;
+_ammoBox = param [0];
+_itemData = param [1, [], [[]]];
+_removeItems = param [2, false, [false]];
+_addGlasses = param [3, false, [false]];
 
 if (_removeItems) then
 {

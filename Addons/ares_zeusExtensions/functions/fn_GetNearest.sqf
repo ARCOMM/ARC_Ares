@@ -9,8 +9,8 @@
 		The object from the array that was nearest to the point of reference.
 */
 
-_pointOfReference = [_this, 0, [0,0,0], [[]], 3] call BIS_fnc_param;
-_candidateObjects = [_this, 1, [], [[]]] call BIS_fnc_param;
+_pointOfReference = param [0, [0,0,0], [[]], 3];
+_candidateObjects = param [1, [], [[]]];
 
 _nearest = objNull;
 _nearestDistance = 0;

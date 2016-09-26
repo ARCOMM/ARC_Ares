@@ -14,7 +14,7 @@
 */
 disableSerialization;
 
-_titleText = [_this, 0] call BIS_fnc_param;
+_titleText = param [0];
 _choicesArray = _this select 1;
 if ((count _this) == 2 && typeName (_choicesArray select 0) == typeName "") then
 {

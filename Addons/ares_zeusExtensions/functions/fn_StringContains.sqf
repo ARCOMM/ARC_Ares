@@ -17,8 +17,8 @@
 */
 
 private ["_needle","_haystack","_needleLen","_hay","_found"];
-_needle = [_this, 0, "", [""]] call BIS_fnc_param;
-_haystack = toArray ([_this, 1, "", [""]] call BIS_fnc_param);
+_needle = param [0, "", [""]];
+_haystack = toArray (param [1, "", [""]]);
 _needleLen = count toArray _needle;
 _hay = +_haystack;
 _hay resize _needleLen;

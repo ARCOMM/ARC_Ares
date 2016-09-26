@@ -28,7 +28,7 @@ Testers/Feedback:
 */
 
 private ["_grpFM", "_FunctionsManager", "_group", "_leader", "_ldrPos", "_previousBehaviour", "_srchRad", "_whichOne", "_initialPos", "_includeLeaderInSearch", "_occupy", "_bldgArray", "_tempArray", "_bldgLoc", "_bldgSelect", "_searchersT", "_searchers", "_searcherCount", "_s", "_checkTime", "_wpArray", "_currWP", "_wpCnt", "_d", "_t", "_b", "_bldg", "_bldgPos", "_bldgCnt", "_nameMarker", "_marker", "_bldgBB", "_wpRad", "_wp", "_positionsInBuilding", "_totTime", "_activeBP", "_loop", "_cycle", "_unitSelect", "_units"];
-_group = [_this, 0] call BIS_fnc_param;
+_group = param [0];
 
 // Must be run where group leader is local.
 if (not local _group) exitWith {};
@@ -38,12 +38,12 @@ if ((typeName _group) == "OBJECT") then {_group = group (_this select 0)};
 _leader = leader _group;
 _ldrPos = getPos _leader;
 _previousBehaviour = behaviour _leader;
-_srchRad = [_this, 1, 50, [1]] call BIS_fnc_param;
-_whichOne = [_this, 2, "RANDOM", ["RANDOM"]] call BIS_fnc_param;
-_initialPos = [_this, 3, _ldrPos, [[]], 3] call BIS_fnc_param;
-_includeLeaderInSearch = [_this, 4, false, [false]] call BIS_fnc_param;
-_occupy = [_this, 5, false, [false]] call BIS_fnc_param;
-_debug = [_this, 6, false, [false]] call BIS_fnc_param;
+_srchRad = param [1, 50, [0]];
+_whichOne = param [2, "RANDOM", [""]];
+_initialPos = param [3, _ldrPos, [[]], 3];
+_includeLeaderInSearch = param [4, false, [true]];
+_occupy = param [5, false, [false]];
+_debug = param [6, false, [false]];
 
 // This file needs to be Self-Contained and use only standard BIS functions
 // since it will be run on the server and Ares functions may not be available.

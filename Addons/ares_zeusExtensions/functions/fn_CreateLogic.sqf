@@ -7,9 +7,9 @@
 		2 - Group (Optional) - The group to add the logic to.
 */
 
-_position = [_this, 0] call BIS_fnc_Param; 
-_name = [_this, 1, "Logic"] call BIS_fnc_Param;
-_group = [_this, 2, grpNull] call BIS_fnc_Param;
+_position = param [0];
+_name = param [1, "Logic"];
+_group = param [2, grpNull];
 
 if (isNull _group) then
 {

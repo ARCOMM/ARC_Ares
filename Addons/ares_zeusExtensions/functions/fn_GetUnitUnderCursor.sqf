@@ -9,7 +9,7 @@
 */
 private ["_logic", "_unitUnderCursor"];
 _logic = _this select 0;
-_shouldRemoveLogicIfNoUnitFound = [_this, 1, true] call BIS_fnc_Param;
+_shouldRemoveLogicIfNoUnitFound = param [1, true];
 
 _unitUnderCursor = objNull;
 

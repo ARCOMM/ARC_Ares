@@ -6,8 +6,8 @@
 		1 - Boolean - True to add the objects to curator control, false to remove them from curator control. Default is True.
 */
 
-_unitsToModify = [_this, 0, [], [[]]] call BIS_fnc_param;
-_addToCurator = [_this, 1, true, [true]] call BIS_fnc_param;
+_unitsToModify = param [0, [], [[]]];
+_addToCurator = param [1, true, [true]];
 
 if (isNil "Ares_addUnitsToCuratorFunction") then
 {

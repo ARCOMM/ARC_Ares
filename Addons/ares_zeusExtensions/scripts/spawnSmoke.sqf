@@ -1,6 +1,6 @@
 // These smoke templates based on code from the wiki: https://community.bistudio.com/wiki/ParticleTemplates
-_smokeType = [_this, 0] call BIS_fnc_Param;
-_sourceObject = [_this, 1] call BIS_fnc_Param;
+_smokeType = param [0];
+_sourceObject = param [1];
 
 switch(_smokeType) do
 {

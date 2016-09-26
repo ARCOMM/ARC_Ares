@@ -11,7 +11,7 @@
 		Cancelled - The string "CANCELLED"
 */
 
-_numberOfElements = [_this, 0, -1, [0]] call BIS_fnc_param;
+_numberOfElements = param [0, -1, [0]];
 
 // Show the paste dialog to the user
 _returnValue = "CANCELLED";

@@ -9,6 +9,6 @@
 
 _params = _this select 0;
 _functionName = _this select 1;
-_isPersistent = [_this, 2, true, true] call BIS_fnc_param;
+_isPersistent = param [2, true, [true]];
 
 [_params, _functionName, true, _isPersistent] spawn BIS_fnc_MP;

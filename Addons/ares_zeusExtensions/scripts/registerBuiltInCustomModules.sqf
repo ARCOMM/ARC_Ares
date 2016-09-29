@@ -42,7 +42,12 @@ _scripts = [
     "ARC_groundFlareWhite",
     "ARC_groundFlareGreen",
     "ARC_groundFlareRed",
-    "ARC_groundFlareYellow"
+    "ARC_groundFlareYellow",
+
+    "ARC_suppressNearest",
+    "ARC_rushNearest",
+    "ARC_briefingStage",
+    "ARC_startSpec"
 ];
 
 {

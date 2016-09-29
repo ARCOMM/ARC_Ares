@@ -14,8 +14,9 @@ _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
 			{
 				_x setUnitPos "AUTO";
 				_x forceSpeed -1;
+				_x enableAI "PATH";
 				_x doMove _outsidePos;
-			} forEach(units _groupUnderCursor);
+			} forEach (units _groupUnderCursor);
 		};
 	},
 	[_groupUnderCursor]
